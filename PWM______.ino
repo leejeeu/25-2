@@ -1,5 +1,5 @@
-int ledPeriod = 100;
-int ledDuty = 0;
+int ledPeriod ;
+int ledDuty ;
 
 void setup() {
   pinMode(7, OUTPUT);
@@ -10,8 +10,6 @@ void set_period(int period) {
 }
 
 void set_duty(int duty) {
-  if(duty < 0) duty = 0;
-  if(duty > 100) duty = 100;
   ledDuty = duty;
 }
 
@@ -20,23 +18,23 @@ void loop() {
 
   for(int i=0; i<=100; i++) {
     set_duty(i);
-    int onTime = ledPeriod * ledDuty / 100;
-    int offTime = ledPeriod - onTime;
+    int on = ledPeriod * ledDuty / 100;
+    int off = ledPeriod - on;
 
     digitalWrite(7, HIGH);
-    delayMicroseconds(onTime);
+    delayMicroseconds(on);
     digitalWrite(7, LOW);
-    delayMicroseconds(offTime);
+    delayMicroseconds(off);
   }
 
   for(int i=100; i>=0; i--) {
     set_duty(i);
-    int onTime = ledPeriod * ledDuty / 100;
-    int offTime = ledPeriod - onTime;
+    int on = ledPeriod * ledDuty / 100;
+    int off = ledPeriod - on;
 
     digitalWrite(7, HIGH);
-    delayMicroseconds(onTime);
+    delayMicroseconds(on);
     digitalWrite(7, LOW);
-    delayMicroseconds(offTime);
+    delayMicroseconds(off);
   }
 }
