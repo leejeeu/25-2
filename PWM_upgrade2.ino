@@ -4,11 +4,11 @@ void setup() {
 }
 float ledPeriod;
 float ledDuty;
-void set_period(int period){
+void set_period(float period){
   ledPeriod = period;
 }
-void set_duty(int duty){
-  ledDuty = (float) duty/100.0;
+void set_duty(float duty){
+  ledDuty =  duty/100.0;
 }
 float set_on(){
   return ledPeriod*ledDuty;
