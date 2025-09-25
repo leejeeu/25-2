@@ -30,9 +30,12 @@ void measure(void){
   if(distime ==0) distance = 0;
   else distance = (float) distime / 58.2*10;
  
-  Serial.print("거리:");
+  Serial.print("거리:"); Serial.print(distance);
+  Serial.print("밝기:"); Serial.print(brightness());
+  Serial.print("");
+
   Serial.print(distance);
-  Serial.print("밝기:");
+  Serial.print("\t");
   Serial.println(brightness());
 }
  
