@@ -1,21 +1,16 @@
 #include <Servo.h>
 
+#define D 1
 #define PIN_SERVO 10
 
-// Servo PWM limits
-#define _DUTY_MIN 800    // 0°
-#define _DUTY_NEU 1700  // 90°
-#define _DUTY_MAX 2600   // 180°
-
-// Start and end positions
+#define _DUTY_MIN 800
+#define _DUTY_NEU 1700
+#define _DUTY_MAX 2600
 #define _POS_START (_DUTY_MIN + 100)
-#define _POS_END   (_DUTY_MAX - 100)
+#define INTERVAL 20   // 20ms
 
-// Loop interval
-#define INTERVAL 20      // 20ms
-
-// Desired servo speed
-#define _SERVO_SPEED 0.3  // 3°/sec -> 180° in 60sec
+const int _POS_END = (D == 1) ? (_DUTY_MAX - 100) : (_DUTY_NEU - 100);
+const float _SERVO_SPEED = (D == 1) ? 3.0 : 0.3;
 
 Servo myservo;
 
